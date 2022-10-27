@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>279</width>
+    <width>479</width>
     <height>286</height>
    </rect>
   </property>
@@ -48,21 +48,21 @@
        </property>
       </widget>
      </item>
-     <item row="5" column="0">
+     <item row="6" column="0">
       <widget class="QLabel" name="thresholdLabel">
        <property name="text">
         <string>Threshold:</string>
        </property>
       </widget>
      </item>
-     <item row="7" column="0" colspan="2">
+     <item row="8" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <property name="bottomMargin">
         <number>0</number>
        </property>
       </layout>
      </item>
-     <item row="6" column="0" colspan="2">
+     <item row="7" column="0" colspan="2">
       <layout class="QHBoxLayout" name="horizontalLayout_2">
        <item>
         <widget class="QLabel" name="label">
@@ -98,6 +98,13 @@
         </widget>
        </item>
       </layout>
+     </item>
+     <item row="5" column="0">
+      <widget class="ctkDirectoryButton" name="labelFileButton">
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
@@ -146,6 +153,11 @@
    <extends>QWidget</extends>
    <header>ctkCollapsibleButton.h</header>
    <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>ctkDirectoryButton</class>
+   <extends>QWidget</extends>
+   <header>ctkDirectoryButton.h</header>
   </customwidget>
   <customwidget>
    <class>ctkDoubleRangeSlider</class>

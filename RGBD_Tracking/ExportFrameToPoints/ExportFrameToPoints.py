@@ -2,6 +2,9 @@ import os
 import numpy
 import unittest
 import logging
+import pandas
+import cv2
+
 import vtk, qt, ctk, slicer
 from slicer.ScriptedLoadableModule import *
 from slicer.util import VTKObservationMixin
@@ -194,6 +197,7 @@ class ExportFrameToPointsWidget(ScriptedLoadableModuleWidget, VTKObservationMixi
     self.logic.exportDepthToPoints(self.ui.depthNodeSelector.currentNode().GetName(),minThreshold,maxThreshold)
 
 
+
 #
 # ExportFrameToPointsLogic
 #
@@ -225,6 +229,12 @@ class ExportFrameToPointsLogic(ScriptedLoadableModuleLogic):
     self.threshold = value
 
   def exportDepthToPoints(self,depthImageNode,minThreshold,maxThreshold):
+    seekWidget = slicer.util.mainWindow().findChildren("qMRMLSequenceBrowserSeekWidget")
+    seekWidget = seekWidget[0]
+    timeLabel = seekWidget.findChildren("QLabel")
+    timeLabel = timeLabel[1]
+    recordingTime = float(timeLabel.text)
+    self.recordingTime = recordingTime
     self.minThreshold = minThreshold
     self.maxThreshold = maxThreshold
     try:
